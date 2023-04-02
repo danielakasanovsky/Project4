@@ -4,8 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Olaplex {
+import java.time.Duration;
+
+public class OlaplexPage {
     private WebDriver driver;
     @FindBy(id= "chrome-search")
     WebElement search;
@@ -19,7 +23,7 @@ public class Olaplex {
     WebElement LowToHigh;
     @FindBy (className = "container_p0yFn")
     WebElement Favourite;
-    public Olaplex(WebDriver driver) {
+    public OlaplexPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -35,8 +39,12 @@ public class Olaplex {
         LowToHigh.click();
 
     }
+
     public void Favourite() throws InterruptedException {
-        Favourite.click();
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(Favourite));
+            Favourite.click();
 
     }
 

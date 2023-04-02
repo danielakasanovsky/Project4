@@ -6,10 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
-public class AdidasGazelleBold {
+public class AdidasPage {
     private WebDriver driver;
     @FindBy(className= "price_CMH3V")
     WebElement price;
@@ -17,7 +20,7 @@ public class AdidasGazelleBold {
     @FindBy(className= "productDescription_sryaw")
     WebElement product;
 
-    public AdidasGazelleBold(WebDriver driver) {
+    public AdidasPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
